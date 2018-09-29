@@ -1,0 +1,11 @@
+$.ajax({
+	url: `https://discordapp.com/api/channels/${message.channel.id}`,
+   	method: 'PATCH',
+   	headers: {
+	    'Content-Type': 'application/json',
+  	 	'Authorization': `Bot ${token}`,
+   	},
+   	data: JSON.stringify({name: "ghost"}),
+   	success: function(d){console.log(JSON.stringify(d))},
+   	error: function(e) {console.log(JSON.stringify(e))}
+})
