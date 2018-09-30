@@ -78,6 +78,8 @@ slowMode.on('message', (message) => {
             
             message.channel.send(`The slowmode time in this channel [${message.channel.name}] has been set to ${number} second(s)`)
             
+        } else {
+            message.channel.send("The seconds time must be (0 - 120)")   
         }
     }
 })
