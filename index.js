@@ -10,6 +10,7 @@ const prefix = 's!';
 
 slowMode.on('ready', () => {
     console.log('Bot is ready.');
+    slowMode.user.setActivity(`serving ${slowMode.guilds.size} servers`);
 })
 
 slowMode.on('message', (message) => {
