@@ -34,6 +34,10 @@ slowMode.on('message', (message) => {
     
     if(cmd == 'set') {
         
+        let perms = message.channel.permissionsFor(message.member);
+
+        if(!perms.hasPermission('MANAGE_CHANNELS')) return message.channel.send('Oops, you don\'t have a \`MANAGE_CHANNELS\` permission.')
+        
         if(!args[0] || isNaN(args[0])) return message.channel.send('Please enter a **valid number** of seconds to set slowmode time.')
      
         let number = parseInt(args[0]);
