@@ -12,7 +12,17 @@ slowMode.on('ready', () => {
     console.log('Bot is ready.');
     slowMode.user.setActivity(`serving ${slowMode.guilds.size} servers`);
 })
+slowMode.on("guildCreate", guild => {
+  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+    slowMode.user.setActivity(`serving ${slowMode.guilds.size} servers`);
 
+});
+
+slowMode.on("guildDelete", guild => {
+  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+    slowMode.user.setActivity(`serving ${slowMode.guilds.size} servers`);
+
+});
 slowMode.on('message', (message) => {
     if(message.author.bot) return;
     if(!message.guild) return;
